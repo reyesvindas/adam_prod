@@ -5,10 +5,10 @@
   tasks:
 
     - include: day1_DT_ami.yaml
-      when: env == Day1 or env == DevelopmentIntegrated
+      when: env == "Day1" or env == "DevelopmentIntegrated"
 
     - include: dev_ami.yaml
-      when: env == Dev
+      when: env == "Dev"
 
     - include: Prod_Test_ami.yaml
-      when: env == Prod or env == Test
+      when: env == "Prod" or env == "Test"

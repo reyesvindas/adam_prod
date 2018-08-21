@@ -1,0 +1,37 @@
+---
+- hosts: "tag_Environment_{{env}}:&tag_Role_Web"
+  serial: 1
+  remote_user: ubuntu
+  become: true
+
+  pre_tasks:
+    - name: Install NFS Utilities
+      apt: name=nfs-common state=installed update_cache=yes
+
+    - name: Install MySQL Client
+      apt: name=mysql-client-core-5.7 state=installed update_cache=yes
+
+    - name: Create mountable dir
+      file: path=/nfs state=directory mode=775 owner=root group=root
+
+    - name: set mountpoints
+      mount: name=/nfs src="{{hostvars[groups['tag_Role_NFS_Main'][0]]['ec2_private_ip_address']}}:/mnt/wordpress" fstype=nfs opts=defaults dump=0 passno=2 state=mounted
+
+    - name: create link to NFS
+      file:
+        src: /nfs
+        dest: /var/www
+        owner: root
+        group: root
+        state: link
+  
+  roles:
+   - apache_web-server
+   - php
+   - wordpress  
+
+  post_tasks:
+    - name: restart apache
+      service:
+        name: apache2
+        state: reloaded

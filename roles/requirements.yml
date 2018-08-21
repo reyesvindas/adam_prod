@@ -1,0 +1,7 @@
+- src: https://github.com/reyesvindas/apache_web-server
+  version: master
+
+- src: https://github.com/reyesvindas/php
+
+- src: https://github.com/reyesvindas/wordpress
+  version: master

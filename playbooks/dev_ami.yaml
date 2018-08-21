@@ -1,0 +1,9 @@
+---
+    - name: AMI creation for DEV
+        ec2_ami:
+          instance_id: "{{ hostvars[item]['ec2_id'] }}"
+          name: "{{ hostvars[item][ec2_tag_Name] }}-ansible_date_time.date"
+          no_reboot: yes
+          tags:
+             Environment: "Dev"
+          with_items: "{{ groups['tag_Environment_Dev'] }}"

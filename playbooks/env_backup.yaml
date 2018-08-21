@@ -1,0 +1,14 @@
+---
+
+- hosts: localhost
+  user: ubuntu
+  tasks:
+
+    - include: day1_DT_ami.yaml
+    when: "{{ env }} == day1 or {{ env }} == DevelopmentIntegrated"
+
+    - include: dev_ami.yaml
+    when: "{{ env }} == dev"
+
+    - include: Prod_Test_ami.yaml
+    when: "{{ env }} == Prod or {{ env }} == Test"

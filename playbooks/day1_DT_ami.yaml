@@ -2,35 +2,39 @@
     - name: AMI creation for PublisherDispatcher
       ec2_ami:
         instance_id: "{{ hostvars[groups['tag_Role_PublisherDispatcher'][0]]['ec2_id'] }}"
-        name: "{{ hostvars[groups['tag_Role_PublisherDispatcher'][0]]['ec2_tag_Name'] }}-ansible_date_time.date"
+        name: "{{ hostvars[groups['tag_Role_PublisherDispatcher'][0]]['ec2_tag_Name'] }}-GoldBackup"
         no_reboot: yes
         region: us-west-2
         tags:
            Environment: "{{ env }}"
+           Date: "{{ansible_date_time.date}}"
 
     - name: AMI creation for AuthorDispatcher
       ec2_ami:
         instance_id: "{{ hostvars[groups['tag_Role_AuthorDispatcher'][0]]['ec2_id'] }}"
-        name: "{{ hostvars[groups['tag_Role_AuthorDispatcher'][0]]['ec2_tag_Name'] }}-ansible_date_time.date"
+        name: "{{ hostvars[groups['tag_Role_AuthorDispatcher'][0]]['ec2_tag_Name'] }}-GoldBackup"
         no_reboot: yes
         region: us-west-2
         tags:
            Environment: "{{ env }}"
+           Date: "{{ansible_date_time.date}}"
 
     - name: AMI creation for Author
       ec2_ami:
         instance_id: "{{ hostvars[groups['tag_Role_Author'][0]]['ec2_id'] }}"
-        name: "{{ hostvars[groups['tag_Role_Author'][0]]['ec2_tag_Name'] }}-ansible_date_time.date"
+        name: "{{ hostvars[groups['tag_Role_Author'][0]]['ec2_tag_Name'] }}-GoldBackup"
         no_reboot: yes
         region: us-west-2
         tags:
            Environment: "{{ env }}"
+           Date: "{{ansible_date_time.date}}"
 
     - name: AMI creation for Publisher
       ec2_ami:
         instance_id: "{{ hostvars[groups['tag_Role_Publisher'][0]]['ec2_id'] }}"
-        name: "{{ hostvars[groups['tag_Role_Publisher'][0]]['ec2_tag_Name'] }}-ansible_date_time.date"
+        name: "{{ hostvars[groups['tag_Role_Publisher'][0]]['ec2_tag_Name'] }}-GoldBackup"
         no_reboot: yes
         region: us-west-2
         tags:
            Environment: "{{ env }}"
+           Date: "{{ansible_date_time.date}}"

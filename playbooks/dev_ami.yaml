@@ -1,12 +1,10 @@
 ---
     - name: AMI creation for DEV
-      debug:
-        msg: "{{ hostvars[item]['ec2_tag_Name'] }}-GoldBackup"
+      ec2_ami:
+        instance_id: "{{ hostvars[item]['ec2_id'] }}"
+        name: "{{ hostvars[item]['ec2_tag_Name'] }}-GoldBackup"
+        no_reboot: yes
+        tags:
+           Environment: "Dev"
+           Date: "{{ansible_date_time.date}}"
       with_items: "{{ groups['tag_Environment_Dev'] }}"
-      #ec2_ami:
-      #  instance_id: "{{ hostvars[item]['ec2_id'] }}"
-      #  name: "{{ hostvars[item]['ec2_tag_Name']-ansible_date_time.date }}"
-      #  no_reboot: yes
-      #  tags:
-      #     Environment: "Dev"
-      #with_items: "{{ groups['tag_Environment_Dev'] }}"

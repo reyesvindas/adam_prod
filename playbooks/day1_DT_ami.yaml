@@ -1,7 +1,7 @@
 ---
     - name: Debug intersect
       debug:
-        msg: "{{ groups['tag_Role_PublisherDispatcher'] | intersect(groups['tag_Environment_Day1']) }}"
+        msg: "{{ groups['tag_Role_PublisherDispatcher'] | intersect(groups['tag_Environment_Day1']).ec2_id }}"
     
     - name: AMI creation for PublisherDispatcher
       ec2_ami:

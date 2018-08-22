@@ -1,7 +1,7 @@
 ---
     - name: Debug intersect
       debug:
-        msg: hostvars[groups['tag_Role_PublisherDispatcher']]
+        var: hostvars[groups['tag_Role_PublisherDispatcher']]
     
     - name: AMI creation for PublisherDispatcher
       ec2_ami:

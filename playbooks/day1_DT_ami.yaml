@@ -1,7 +1,7 @@
 ---
     - name: AMI creation for PublisherDispatcher
       ec2_ami:
-        instance_id: "{{ hostvars[groups['tag_Role_PublisherDispatcher'] | intersect(groups['tag_Environment_{{env}}']) | first]['ec2_id'] }}"
+        instance_id: "{{ hostvars[groups['tag_Role_PublisherDispatcher'] | intersect(groups['tag_Environment_{{env}}']) | first] }}"
         name: "{{ hostvars[groups['tag_Role_PublisherDispatcher'][0]]['ec2_tag_Name'] }}-GoldBackup"
         no_reboot: yes
         region: us-west-2

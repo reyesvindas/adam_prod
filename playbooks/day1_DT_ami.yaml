@@ -1,8 +1,8 @@
 ---
     - name: Debug intersect
       debug:
-        msg: "{{ hostvars[groups['tag_Role_PublisherDispatcher'] | intersect(groups['tag_Environment_{{ env }}'])] }}"
-        #msg: "{{ groups['tag_Environment_Day1'] }}"
+        #msg: "{{ hostvars[groups['tag_Role_PublisherDispatcher'] | intersect(groups['tag_Environment_{{ env }}'])] }}"
+        msg: "{{ hostvars[groups['tag_Environment_{{ env }}']] }}"
         #msg: "{{ groups['tag_Role_PublisherDispatcher'] }}"
     
     - name: AMI creation for PublisherDispatcher

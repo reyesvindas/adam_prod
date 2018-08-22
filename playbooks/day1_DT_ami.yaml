@@ -1,7 +1,7 @@
 ---
     - name: Debug intersect
       debug:
-        msg: "{{ hostvars[groups['tag_Role_PublisherDispatcher'] | intersect(groups['tag_Environment_Day1'])[1]] }}"
+        msg: "{{ hostvars[groups['tag_Role_PublisherDispatcher'] | intersect(groups['tag_Environment_Day1']) | first] }}"
         #msg: "{{ groups['tag_Environment_Day1'] }}"
         #msg: "{{ groups['tag_Role_PublisherDispatcher'] }}"
     

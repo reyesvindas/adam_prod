@@ -6,4 +6,4 @@
         no_reboot: yes
         tags:
            Environment: "Dev"
-        with_items: "{{ groups['tag_Environment_Dev'] }}"
+        with_items: groups['tag_Environment_Dev']

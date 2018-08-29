@@ -2,7 +2,7 @@
 
 - hosts: localhost
   vars:
-    adam-env: tag_Environment_"{{ env }}"
+    adam_env: tag_Environment_"{{ env }}"
   user: ubuntu
   
   tasks:

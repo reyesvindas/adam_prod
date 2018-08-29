@@ -1,7 +1,10 @@
 ---
 
 - hosts: localhost
+  vars:
+    environment: tag_Environment_"{{ env }}"
   user: ubuntu
+  
   tasks:
 
     - include: day1_DT_ami.yaml

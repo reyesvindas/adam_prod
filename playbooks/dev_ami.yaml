@@ -2,9 +2,9 @@
     - name: AMI creation for DEV
       ec2_ami:
         instance_id: "{{ hostvars[item]['ec2_id'] }}"
-        name: "{{ hostvars[item]['ec2_tag_Name'] }}-GoldBackup"
+        name: "{{ hostvars[item]['ec2_tag_Name'] }}-fecha"
         no_reboot: yes
         tags:
            Environment: "Dev"
-           Date: "{{ansible_date_time.date}}"
+           Gold: 'Yes'
       with_items: "{{ groups['tag_Environment_Dev'] }}"

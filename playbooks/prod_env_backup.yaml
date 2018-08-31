@@ -1,1 +1,14 @@
 ---
+
+- hosts: localhost
+  vars:
+    adam_env: "tag_Environment_{{ env }}"
+  user: ubuntu
+  
+  tasks:
+
+    - include: day1_DT_ami.yaml
+      when: env == "Day1"
+
+    - include: Prod_Test_ami.yaml
+      when: env == "Prod"

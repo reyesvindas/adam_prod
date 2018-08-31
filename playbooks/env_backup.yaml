@@ -3,6 +3,7 @@
 - hosts: localhost
   vars:
     adam_env: "tag_Environment_{{ env }}"
+    fecha: " {{ ansible_date_time.iso8601 }}"
   user: ubuntu
   
   tasks:

@@ -10,7 +10,7 @@
     - name: AMI creation for PublisherDispatcher
       ec2_ami:
         instance_id: "{{ hostvars[groups['tag_Role_PublisherDispatcher'] | intersect(groups[adam_env]) | first]['ec2_id'] }}"
-        name: "{{ hostvars[groups['tag_Role_PublisherDispatcher'] | intersect(groups[adam_env]) | first]['ec2_tag_Name']- fecha }}"
+        name: "{{ hostvars[groups['tag_Role_PublisherDispatcher'] | intersect(groups[adam_env]) | first]['ec2_tag_Name']\- fecha }}"
         no_reboot: yes
         region: us-west-2
         tags:

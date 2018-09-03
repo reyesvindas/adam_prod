@@ -2,7 +2,7 @@
     - name: AMI creation for PublisherDispatcher
       ec2_ami:
         instance_id: "{{ hostvars[groups['tag_Role_PublisherDispatcher'] | intersect(groups[adam_env]) | first]['ec2_id'] }}"
-        name: "{{ hostvars[groups['tag_Role_PublisherDispatcher'] | intersect(groups[adam_env]) | first]['ec2_tag_Name'] }}-fecha"
+        name: "{{ hostvars[groups['tag_Role_PublisherDispatcher'] | intersect(groups[adam_env]) | first]['ec2_tag_Name'] + '-' + fecha }}"
         no_reboot: yes
         tags:
            Environment: "{{ env }}"
@@ -11,7 +11,7 @@
     - name: AMI creation for AuthorDispatcher
       ec2_ami:
         instance_id: "{{ hostvars[item]['ec2_id'] }}"
-        name: "{{ hostvars[groups[item][ec2_tag_Name] }}-fecha"
+        name: "{{ hostvars[groups[item][ec2_tag_Name] + '-' + fecha }}"
         no_reboot: yes
         tags:
            Environment: "{{ env }}"
@@ -21,7 +21,7 @@
     - name: AMI creation for Author
       ec2_ami:
         instance_id: "{{ hostvars[item]['ec2_id'] }}"
-        name: "{{ hostvars[item][ec2_tag_Name] }}-fecha"
+        name: "{{ hostvars[item][ec2_tag_Name] + '-' + fecha }}"
         no_reboot: yes
         tags:
            Environment: "{{ env }}"
@@ -31,7 +31,7 @@
     - name: AMI creation for Publisher
       ec2_ami:
         instance_id: "{{ hostvars[groups['tag_Role_Publisher'] | intersect(groups[adam_env]) | first]['ec2_id'] }}"
-        name: "{{ hostvars[groups['tag_Role_Publisher'] | intersect(groups[adam_env]) | first]['ec2_tag_Name'] }}-fecha"
+        name: "{{ hostvars[groups['tag_Role_Publisher'] | intersect(groups[adam_env]) | first]['ec2_tag_Name'] + '-' + fecha }}"
         no_reboot: yes
         tags:
            Environment: "{{ env }}"

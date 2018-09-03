@@ -18,7 +18,7 @@
         tags:
            Environment: "{{ env }}"
            Gold: 'Yes'
-        with_items: "{{ groups['tag_Role_AuthorDispatcher'] | intersect(groups[adam_env]) }}"
+      with_items: "{{ groups['tag_Role_AuthorDispatcher'] | intersect(groups[adam_env]) }}"
 
     - name: AMI creation for Author
       ec2_ami:
@@ -29,7 +29,7 @@
         tags:
            Environment: "{{ env }}"
            Gold: 'Yes'
-        with_items: "{{ groups['tag_Role_Author'] | intersect(groups[adam_env]) }}"
+      with_items: "{{ groups['tag_Role_Author'] | intersect(groups[adam_env]) }}"
 
     - name: AMI creation for Publisher
       ec2_ami:

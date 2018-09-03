@@ -4,6 +4,7 @@
         instance_id: "{{ hostvars[item]['ec2_id'] }}"
         name: "{{ hostvars[item]['ec2_tag_Name'] + '-' + fecha }}"
         no_reboot: yes
+        region: us-west-2
         tags:
            Environment: "Dev"
            Gold: 'Yes'

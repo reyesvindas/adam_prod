@@ -4,6 +4,7 @@
         instance_id: "{{ hostvars[groups['tag_Role_PublisherDispatcher'] | intersect(groups[adam_env]) | first]['ec2_id'] }}"
         name: "{{ hostvars[groups['tag_Role_PublisherDispatcher'] | intersect(groups[adam_env]) | first]['ec2_tag_Name'] + '-' + fecha }}"
         no_reboot: yes
+        region: us-west-2
         tags:
            Environment: "{{ env }}"
            Gold: 'Yes'
@@ -13,6 +14,7 @@
         instance_id: "{{ hostvars[item]['ec2_id'] }}"
         name: "{{ hostvars[groups[item][ec2_tag_Name] + '-' + fecha }}"
         no_reboot: yes
+        region: us-west-2
         tags:
            Environment: "{{ env }}"
            Gold: 'Yes'
@@ -23,6 +25,7 @@
         instance_id: "{{ hostvars[item]['ec2_id'] }}"
         name: "{{ hostvars[item][ec2_tag_Name] + '-' + fecha }}"
         no_reboot: yes
+        region: us-west-2
         tags:
            Environment: "{{ env }}"
            Gold: 'Yes'
@@ -33,6 +36,7 @@
         instance_id: "{{ hostvars[groups['tag_Role_Publisher'] | intersect(groups[adam_env]) | first]['ec2_id'] }}"
         name: "{{ hostvars[groups['tag_Role_Publisher'] | intersect(groups[adam_env]) | first]['ec2_tag_Name'] + '-' + fecha }}"
         no_reboot: yes
+        region: us-west-2
         tags:
            Environment: "{{ env }}"
            Gold: 'Yes'
